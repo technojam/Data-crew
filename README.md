@@ -75,7 +75,7 @@ Running
 
 
     pip install -r requirements.txt
-### Go into the folder open terminal 
+### Go into the folder open terminal and run 
     steramlit run cycle_app.py
 ## Or test it from here
 [Cycle Flow](https://cycleapps.herokuapp.com/)

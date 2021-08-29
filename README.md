@@ -45,19 +45,6 @@ The biggest advantage of an application is that it does not need extra hardware.
 
 This application offers a solution for an existing problem, as long as the problem exists our solution has a good reason to exist. Women can follow their own menstrual cycle and they can be warned about potential illnesses or any other abnormal factor of their cycle. Women can plan their life according to the menstrual cycle or to the fertile and non-fertile periods.
 
-## How To Run It
-
-Installing Required Packages 
-
-
-
-
-
-Running
-
-
-
-
 
 ## Challenges 
 

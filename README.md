@@ -78,7 +78,7 @@ Running
 ### Go into the folder open terminal 
     steramlit run cycle_app.py
 ## Or test it from here
-    [Cycle Flow](https://cycleapps.herokuapp.com/)
+[Cycle Flow](https://cycleapps.herokuapp.com/)
 
 ## Cycle Flow 2.0
 

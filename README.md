@@ -45,7 +45,23 @@ The biggest advantage of an application is that it does not need extra hardware.
 
 This application offers a solution for an existing problem, as long as the problem exists our solution has a good reason to exist. Women can follow their own menstrual cycle and they can be warned about potential illnesses or any other abnormal factor of their cycle. Women can plan their life according to the menstrual cycle or to the fertile and non-fertile periods.
 
+## How To Run It
 
+Installing Required Packages 
+
+
+
+
+
+Running
+
+flask run
+
+When you run flask run on the terminal, a local host link should appear. Open this link in your browser to view the project.
+
+Ensure you have installed Desktop developement with C++ componenets using Visual Studio Installer and CMake to install dlib and face_recognition.
+
+Demo: https://mlian.herokuapp.com/
 ## Challenges 
 
 ### phase 1 

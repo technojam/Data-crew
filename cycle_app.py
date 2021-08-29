@@ -25,28 +25,31 @@ else:
     def user_input_features():
         
         
-        cycle_length = st.sidebar.slider('Cycle length', 10,50,23)
-        Menses_Length = st.sidebar.slider('Menses depth', 0,20,10)
-        luetal_phase = st.sidebar.slider('luetal phase', 0,30,7)
+        LengthofCycle = st.sidebar.slider('Cycle length', 10,50,23)
+        LengthofLutealPhase = st.sidebar.slider('luetal phase', 0,30,7)
+        LengthofMenses = st.sidebar.slider('Menses depth', 0,20,10)
+        
         
         data = {
-                'cycle_length': cycle_length,
-                'Menses_Length': Menses_Length,
-                'luetal_phase': luetal_phase
+                'LengthofCycle': LengthofCycle,
+                'LengthofLutealPhase': LengthofLutealPhase,
+                'LengthofMenses': LengthofMenses
+                
                 }
+
         features = pd.DataFrame(data, index=[0])
         return features
     input_df = user_input_features()
 
-# Combines user input features with entire penguins dataset
+# Combines user input features with entire  dataset
 # This will be useful for the encoding phase
-cycle_raw = pd.read_csv("data.csv")
-penguins = cycle_raw.drop(columns=['EstimatedDayofOvulation'], axis=1)
-df = pd.concat([input_df,penguins],axis=0)
+cycle_raw = pd.read_csv("clean_dataset.csv")
+cycle = cycle_raw.drop(columns=['EstimatedDayofOvulation'], axis=1)
+df = pd.concat([input_df,cycle],axis=0)
 
 # Encoding of ordinal features  species
 
-encode = ['LengthofCycle','LengthofMenses','LengthofLutealPhase']
+encode = ['LengthofCycle','LengthofLutealPhase']
 for col in encode:
     dummy = pd.get_dummies(df[col], prefix=col)
     df = pd.concat([df,dummy], axis=1)
@@ -71,9 +74,8 @@ prediction_proba = load_clf.predict_proba(df)
 
 
 st.subheader('Prediction')
-penguins_species = np.array(['10','20','30'])
-st.write(penguins_species[prediction])
-penguins_species = np.array([17, 15, 16, 14, 18, 12, 19, 11, 13, 27, 22,  8, 20, 21, 23, 10, 26,24, 29,  9, 25, 28,  6])
-st.write(penguins_species[prediction])
+EstimatedDayofOvulation = np.array([17, 15, 16, 14, 18, 12, 19, 11, 13, 27, 22,  8, 20, 21, 23, 10, 26,24, 29,  9, 25, 28,  6])
+st.write(EstimatedDayofOvulation[prediction])
+
 st.subheader('Prediction Probability')
 st.write(prediction_proba)

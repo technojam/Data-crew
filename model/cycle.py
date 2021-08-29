@@ -1,10 +1,10 @@
 import pandas as pd
-penguins = pd.read_csv('clean_dataset.csv',header=0, escapechar='\\')
+penguins = pd.read_csv('clean_dataset.csv')
 
 # Ordinal feature encoding
 
 df = penguins.copy()
-target = 'lutealphaselength'
+target = 'EstimatedDayofOvulation'
 encode = ['LengthofCycle','LengthofLutealPhase']
 
 for col in encode:
@@ -12,15 +12,15 @@ for col in encode:
     df = pd.concat([df,dummy], axis=1)
     del df[col]
 
-target_mapper = {'Adelie':0, 'Chinstrap':1, 'Gentoo':2}
+target_mapper =  {17:17, 15:15, 16:16, 14:14, 18:18, 12:12, 19:19, 11:11, 13:13, 27:27, 22:22,  8:8, 20:20, 21:21, 23:23, 10:10, 26:26,24:24, 29:29,  9:9, 25:25, 28:28,  6:6}
 def target_encode(val):
     return target_mapper[val]
 
-df['species'] = df['species'].apply(target_encode)
+df['EstimatedDayofOvulation'] = df['EstimatedDayofOvulation'].apply(target_encode)
 
 # Separating X and y
-X = df.drop('species', axis=1)
-Y = df['species']
+X = df.drop('EstimatedDayofOvulation', axis=1)
+Y = df['EstimatedDayofOvulation']
 
 # Build random forest model
 from sklearn.ensemble import RandomForestClassifier
@@ -29,4 +29,4 @@ clf.fit(X, Y)
 
 # Saving the model
 import pickle
-pickle.dump(clf, open('penguins_clf.pkl', 'wb'))
+pickle.dump(clf, open('cycle_model.pkl', 'wb'))

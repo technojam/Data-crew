@@ -55,13 +55,10 @@ Installing Required Packages
 
 Running
 
-flask run
 
-When you run flask run on the terminal, a local host link should appear. Open this link in your browser to view the project.
 
-Ensure you have installed Desktop developement with C++ componenets using Visual Studio Installer and CMake to install dlib and face_recognition.
 
-Demo: https://mlian.herokuapp.com/
+
 ## Challenges 
 
 ### phase 1 
